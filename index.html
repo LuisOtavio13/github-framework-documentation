@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HEB Layout Completo</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .autor-wrapper {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: #f8fbff;
+  border-left: 5px solid #007bff;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.04);
+  animation: fadeIn 0.6s ease;
+}
+
+.autor-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  gap: 1rem;
+}
+
+.autor-foto {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 3px solid #007bff;
+  object-fit: cover;
+}
+
+.autor-detalhes h3 {
+  margin: 0;
+  font-size: 1.3rem;
+  color: #0056b3;
+}
+
+.autor-detalhes a {
+  color: #0056b3;
+  text-decoration: none;
+}
+
+.autor-detalhes p {
+  margin: 0.3rem 0 0;
+  color: #555;
+}
+
+.motivo-uso h3 {
+  color: #004a8f;
+  font-size: 1.2rem;
+  margin-bottom: 0.8rem;
+}
+
+.motivo-uso ul {
+  list-style: none;
+  padding-left: 1rem;
+  margin-bottom: 1rem;
+}
+
+.motivo-uso ul li {
+  position: relative;
+  margin-bottom: 0.6rem;
+  padding-left: 1.2rem;
+  color: #333;
+}
+
+.motivo-uso ul li::before {
+  content: '✔';
+  position: absolute;
+  left: 0;
+  color: #00b7ff;
+  font-weight: bold;
+}
+
+        .oqeh p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--text);
+  margin-bottom: 1rem;
+}
+
+.oqeh ul {
+  margin-left: 1.2rem;
+  padding-left: 1rem;
+  list-style: none;
+}
+
+.oqeh ul li {
+  margin-bottom: 0.6rem;
+  padding-left: 1.2rem;
+  position: relative;
+  color: var(--text-light);
+}
+
+.oqeh ul li::before {
+  content: '✔';
+  position: absolute;
+  left: 0;
+  color: var(--accent-hover);
+  font-weight: bold;
+}
+
+.tag {
+  background-color: rgba(58, 134, 255, 0.1);
+  color: var(--accent-hover);
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin: 0 4px;
+}
+
+.oqeh code {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: 'Courier New', monospace;
+  color: #00b7ff;
+}
+.heb-bar {
+  overflow-y: auto;
+  max-height: 100vh;
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: #ccc transparent;
+}
+
+/* Estilo da barra de rolagem para WebKit (Chrome, Edge, Safari) */
+.heb-bar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.heb-bar::-webkit-scrollbar-thumb {
+  background-color: #aaa;
+  border-radius: 6px;
+}
+
+    </style>
+</head>
+<body>
+    <!-- Navbar fixa no topo -->
+    <nav class="heb-navbar">
+        <div class="heb-container">
+            <div class="heb-logo">
+                <span>github</span>framework
+            </div>
+
+            <div class="heb-search">
+                <input type="text" id="searchInput" placeholder="search...">
+                <button id="searchButton"><i class="fas fa-search"></i></button>
+            </div>
+
+            <a href="https://github.com" target="_blank" class="heb-github">
+                <i class="fab fa-github"></i> GitHub
+            </a>
+        </div>
+    </nav>
+
+    <!-- Estrutura principal com HEB bar lateral -->
+    <div class="container">
+        <nav class="heb-bar">
+            <div class="logo">
+                
+            </div>
+            <ul class="heb-menu">
+                <li><a href="#" data-target="inicio" class="active"><i class="fas fa-home"></i><span>Start</span></a></li>
+                <li><a href="#" data-target="instalacao"><i class="fas fa-download"></i><span>Installation</span></a></li>
+
+                <li class="submenu">
+                    <a href="#" class="toggle-submenu">
+                        <i class="fas fa-rocket"></i><span>Starting to use</span> 
+                        <i class="fas fa-chevron-down chevron-icon"></i>
+                    </a>
+                    <ul class="sub-list">
+                        <li><a href="#" data-target="conceito-instancia">🔧 Instantiating Explorer</a></li>
+                        <li><a href="#" data-target="conceito-api">📡 Connecting to the GitHub API</a></li>
+                        <li><a href="#" data-target="conceito-modular">📁 Modular Structure</a></li>
+                        <li><a href="#" data-target="conceito-visualizacao">📊 Data Visualization</a></li>
+
+                        <li><a href="#" data-target="conceito-autenticacao">🔐 Authentication via Token</a></li>
+
+
+                    </ul>
+                    </li>
+
+
+                    <li><a href="#" data-target="conceito-erros">🚨 Error handling with examples</a></li>
+                    <li><a href="#" data-target="conceito-performance">📈 Performance and limitations of the API</a></li>
+            </ul>
+        </nav>
+
+        <!-- Conteúdos da lateral -->
+        <div id="inicio" class="conteudo-lateral active">
+            <h2>🧭 What is the GitHub Explorer Framework?</h2>
+            <div class="oqeh">
+                <p>
+                <strong>GitHub Explorer Framework</strong> is a <span class="tag">visual</span>,
+                <span class="tag">analytical</span> and <span class="tag">modular</span> framework built on top of
+                <code>GitHubAPIHelper</code>, created to <strong>explore</strong>,
+                <strong>visualize</strong> and <strong>understand public GitHub data</strong>.
+                </p>
+                <p>
+                It provides a layer of <strong>dynamic dashboard</strong> that allows developers, analysts,
+                open-source maintainers, and educators to analyze information from profiles, repositories, languages, and contributions
+                with high precision and ease.
+                </p>
+                <p>
+                It is possible to integrate it with libraries such as <code>Chart.js</code>, <code>D3.js</code> and <code>DataTables</code> to create
+                responsive charts, reports, and visualizations optimized for SEO.
+                </p>
+                <ul>
+                <li>📦 Modular and expandable with pure JavaScript or modern frameworks</li>
+                <li>📊 Full support for interactive charts</li>
+                <li>🔍 Friendly URLs and configurable by query string (ex: <code>?user=octocat</code>)</li>
+                <li>🚀 Optimized for use as a <strong>single page application</strong> or embedded</li>
+                </ul>
+            </div>
+            <div class="autor-wrapper">
+                <div class="autor-info">
+                    <img src="https://github.com/LuisOtavio13.png" alt="Foto do autor" class="autor-foto">
+                    <div class="autor-detalhes">
+                    <h3>👨‍💻 Created by <a href="https://github.com/LuisOtavio13" target="_blank">@LuisOtavio13</a></h3>
+                    <p>Developer passionate about Open Source, data, and tools that empower the technical community.</p>
+                    </div>
+                </div>
+
+                <div class="motivo-uso">
+                    <h3>🤔 Why use the GitHub Explorer Framework?</h3>
+                    <ul>
+                    <li>🔍 <strong>Visualize complex data</strong> in a simple and interactive way.</li>
+                    <li>⚙️ <strong>Extendable with JavaScript, Chart.js, and REST APIs</strong>.</li>
+                    <li>🚀 <strong>Great for dashboards, reports, and technical education</strong>.</li>
+                    <li>🧩 Based on reusable modules with a focus on <code>best practices</code>.</li>
+                    <li>📈 Allows <strong>monitoring of activity</strong>, <strong>languages</strong>, and <strong>contributions</strong> of any user or public repository.</li>
+                    </ul>
+                    <p>The GitHub Explorer was born out of the need for a practical and reusable solution for frequent analyses of GitHub profiles, especially in community contexts, bootcamps, open-source teams, and technical mentoring.</p>
+                </div>
+                </div>
+                <div class="funcionalidades-box">
+                    <h2>🚀 Main Features</h2>
+                    <div class="features-grid">
+                        <div class="feature-card">
+                        <i class="fas fa-code-branch"></i>
+                        <h4>Repository Analysis</h4>
+                        <p>Explore forks, stars, issues, pull requests, and contributors in any public repository.</p>
+                        </div>
+                        <div class="feature-card">
+                        <i class="fas fa-user"></i>
+                        <h4>Profile Visualization</h4>
+                        <p>Get details like followers, bio, most used languages, and top repositories of any user.</p>
+                        </div>
+                        <div class="feature-card">
+                        <i class="fas fa-chart-pie"></i>
+                        <h4>Interactive Dashboard</h4>
+                        <p>Use charts with Chart.js, D3.js, or ECharts to create custom and responsive views of the data.</p>
+                        </div>
+                        <div class="feature-card">
+                        <i class="fas fa-plug"></i>
+                        <h4>API Modular</h4>
+                        <p>Consume GitHub data using reusable modules, with full support for modern TypeScript and JavaScript.</p>
+                        </div>
+                        <div class="feature-card">
+                        <i class="fas fa-search"></i>
+                        <h4>Advanced Filters</h4>
+                        <p>Filter data by language, dates, contributors, commit types, or topics for precise analyses.</p>
+                        </div>
+                        <div class="feature-card">
+                        <i class="fas fa-tools"></i>
+                        <h4>Easy to Use</h4>
+                        <p>The framework is designed to make programming easier and safer.</p>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="exemplos-uso">
+        <h2>📘 Quick Usage Examples</h2>
+
+        <div class="exemplo-codigo">
+            <h4>🔍 Search for user information</h4>
+            <pre><code class="language-js">
+        // Importing the main module
+        import { GitHubUserService } from 'github-api-framework';
+
+        // Creating instance and fetching user data
+        const userService = new GitHubUserService();
+        userService.getUser('octocat').then(user => {
+        console.log(user.name);       // The Octocat
+        console.log(user.publicRepos); // 8
+        });
+            </code></pre>
+        </div>
+
+        <div class="exemplo-codigo">
+            <h4>📦 List user repositories</h4>
+            <pre><code class="language-js">
+        import { GitHubRepoService } from 'github-api-framework';
+
+        const repoService = new GitHubRepoService();
+        repoService.getUserRepos('octocat').then(repos => {
+        repos.forEach(repo => console.log(repo.name));
+        });
+            </code></pre>
+        </div>
+
+        <div class="exemplo-codigo">
+            <h4>📊 View used languages with graph</h4>
+            <pre><code class="language-js">
+        import { GitHubLanguageService } from 'github-api-framework';
+        import Chart from 'chart.js/auto';
+
+        const langService = new GitHubLanguageService();
+        langService.getLanguagesByUser('octocat').then(data => {
+        new Chart(document.getElementById('grafico'), {
+            type: 'doughnut',
+            data: {
+            labels: Object.keys(data),
+            datasets: [{
+                data: Object.values(data),
+                backgroundColor: ['#f1e05a', '#563d7c', '#3572A5']
+            }]
+            }
+        });
+        });
+            </code></pre>
+            <canvas id="grafico" width="300" height="300"></canvas>
+        </div>
+        </div>
+        <div class="arquitetura-box">
+            <h2>🧩 Architecture and Technologies</h2>
+
+            <div class="arquitetura-explicacao">
+                <p>The <strong>GitHub Explorer Framework</strong> is designed to be modular, extensible, and easy to integrate with other analytical and visual tools. It follows the principles of <span class="tag">Clean Architecture</span> and <span class="tag">Separation of Concerns</span>.</p>
+
+                <ul>
+                <li>🔧 <strong>Service Layer:</strong> Communication with the <code>GitHub REST API</code> encapsulated in reusable modules.</li>
+                <li>🎨 <strong>Presentation Layer:</strong> Dynamic dashboards, widgets, reusable HTML/CSS components.</li>
+                <li>📊 <strong>Analysis Layer:</strong> Data grouping, counting by author, language, period, and event type.</li>
+                <li>🔁 <strong>SPA Support:</strong> Can be used as a Single Page Application with navigation via pure JavaScript.</li>
+                </ul>
+
+                <p>The architecture is divided into the following main modules:</p>
+                <div class="tech-table">
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Module</th>
+                        <th>Responsibility</th>
+                        <th>Technologies</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td><code>UserService</code></td>
+                        <td>Fetch and process user profile data</td>
+                        <td>Fetch API, JS, GitHub API v3</td>
+                    </tr>
+                    <tr>
+                        <td><code>RepoService</code></td>
+                        <td>List and filter repositories</td>
+                        <td>Axios, JSON, Lodash</td>
+                    </tr>
+                    <tr>
+                        <td><code>CommitService</code></td>
+                        <td>Collect and analyze commits by author/date</td>
+                        <td>Date-fns, Chart.js</td>
+                    </tr>
+                    <tr>
+                        <td><code>LanguageService</code></td>
+                        <td>Map and display languages</td>
+                        <td>D3.js, REST API</td>
+                    </tr>
+                    <tr>
+                        <td><code>ActivityService</code></td>
+                        <td>Analyze user events and interactions</td>
+                        <td>Webhooks GitHub, Vue/React (optional)</td>
+                    </tr>
+                    </tbody>
+                </table>
+                </div>
+            </div>
+            </div>
+
+        </div>
+
+        <!-- Ainda dentro do #inicio -->
+        <div id="instalacao" class="conteudo-lateral">
+            <h3>📦 Installing the GitHub Explorer Framework</h3>
+            <div class="oqeh">
+                
+                <p>
+                To get started with the <strong>GitHub Explorer Framework</strong>, you can install it using <code>npm</code>, <code>yarn</code>, or import it via <code>CDN</code> directly in the browser.
+                </p>
+
+                <hr>
+
+                <h4>🧰 Installation via NPM</h4>
+                <pre><code class="bash">npm install github-api-framework</code></pre>
+
+                <hr>
+
+                <h4>🧰 Installation via Yarn</h4>
+                <pre><code class="bash">yarn add github-api-framework</code></pre>
+
+                <hr>
+
+                <h4>🌐 Usage with CDN</h4>
+                <pre><code class="html">&lt;script src="https://cdn.jsdelivr.net/npm/github-api-framework@latest/dist/github.min.js"&gt;&lt;/script&gt;</code></pre>
+
+                <hr>
+
+                <h4>🚀 Importing into the Project</h4>
+                <ul>
+                <li><strong>ESModules:</strong> <code>import { GitHubExplorer } from 'github-api-framework'</code></li>
+                <li><strong>CommonJS:</strong> <code>const &#123; GitHubExplorer &#125; = require('github-api-framework')</code></li>
+                <li><strong>Global (CDN):</strong> <code>window.GitHubExplorer</code></li>
+                </ul>
+
+                <hr>
+
+                <h4>🧪 Prerequisites</h4>
+                <ul>
+                <li>✅ Node.js <code>&gt;= 18.x</code></li>
+                <li>✅ Modern browser (Chrome, Edge, Firefox)</li>
+                <li>✅ Code editor (VSCode, WebStorm, etc.)</li>
+                </ul>
+
+                <hr>
+
+                <h4>🔐 Authentication with Token (optional)</h4>
+                <p>
+                To avoid anonymous request limits on the GitHub API, you can use a personal access token:
+                </p>
+                <pre><code class="js">
+            const explorer = new GitHubExplorer({
+            token: "ghp_seuTokenAqui"
+            });
+                </code></pre>
+                <p>
+                Generate your token at: <a href="https://github.com/settings/tokens" target="_blank">github.com/settings/tokens</a>
+                </p>
+
+                <hr>
+
+                <h4>🧯 Common Errors</h4>
+                <ul>
+                <li>❌ <strong>403:</strong> API rate limit — add a token</li>
+                <li>❌ <strong>"GitHubExplorer is not defined":</strong> CDN script not loaded correctly</li>
+                <li>❌ <strong>Import error:</strong> check if your bundler supports ESModules</li>
+                </ul>
+
+                <hr>
+
+                <h4>📌 Observations</h4>
+                <ul>
+                <li>💡 Full support for modern frameworks: React, Vue, Svelte, Next.js, Astro</li>
+                <li>🛠️ TypeScript support will be included in future versions</li>
+                <li>🔧 Open source licensed under <strong>GPL</strong></li>
+                </ul>
+
+            </div>
+            </div>
+
+
+
+        <div id="produtos" class="conteudo-lateral">
+            <h2><i class="fas fa-box-open"></i> Our Products</h2>
+            <div class="card-grid">
+                <div class="card" data-search="eletrônicos">Electronics</div>
+                <div class="card" data-search="roupas">Clothing</div>
+                <div class="card" data-search="acessórios">Accessories</div>
+            </div>
+        </div>
+
+        <div id="servicos" class="conteudo-lateral">
+            <h2><i class="fas fa-cogs"></i> Services</h2>
+            <ul class="servicos-lista">
+                <li class="heb-item" data-search="web design"><i class="fas fa-check"></i> Web Design</li>
+                <li class="heb-item" data-search="desenvolvimento"><i class="fas fa-check"></i> Development</li>
+                <li class="heb-item" data-search="consultoria"><i class="fas fa-check"></i> Consulting</li>
+            </ul>
+        </div>
+
+        <div id="contato" class="conteudo-lateral">
+            <h2><i class="fas fa-envelope"></i> Contact</h2>
+            <form class="contato-form">
+                <input type="text" placeholder="Your name">
+                <input type="email" placeholder="Email">
+                <textarea placeholder="Message"></textarea>
+                <button type="submit">Send <i class="fas fa-paper-plane"></i></button>
+            </form>
+        </div>
+    </div>
+    <div id="conceito-instancia" class="conteudo-lateral">
+    <h2>🔧 Instantiating the Explorer</h2>
+    <div class="oqeh">
+        <p>
+        To start using the <strong>GitHub Explorer Framework</strong>, the first step is to instantiate the main object
+        of the library: <code>GitHubExplorer</code>.
+        </p>
+
+        <p>You can do this simply, directly in your JavaScript code:</p>
+
+        <h4>📦 Basic Mode (no authentication)</h4>
+        <pre><code class="js">const explorer = new GitHubExplorer();</code></pre>
+
+        <p>
+        This mode allows you to explore public GitHub data, but is subject to the API's anonymous request limits
+        (<strong>60 requests per hour</strong>).
+        </p>
+
+        <h4>🔐 Authentication Mode (personal token)</h4>
+        <pre><code class="js">
+    const explorer = new GitHubExplorer({
+    token: "ghp_yourTokenHere"
+    });
+        </code></pre>
+
+        <p>
+        Using a token is highly recommended to avoid limitations. You can generate a token at:
+        <a href="https://github.com/settings/tokens" target="_blank">github.com/settings/tokens</a>
+        </p>
+
+        <h4>🎯 Advanced Mode (with extra settings)</h4>
+        <pre><code class="js">
+    const explorer = new GitHubExplorer({
+    token: "ghp_yourTokenHere",
+    cache: true,           // activates local cache
+    log: true,             // shows logs in console
+    baseUrl: "https://api.github.com" // custom endpoint if needed
+    });
+        </code></pre>
+
+        <h4>🔎 Checking the instance</h4>
+        <pre><code class="js">
+    console.log(explorer);
+    // Should show available methods: getUser, getRepos, getLanguages, etc.
+        </code></pre>
+
+        <p>
+        Once the instance is ready, you can use all the framework's features, such as searching users,
+        repositories and GitHub statistics.
+        </p>
+
+        <ul>
+        <li>✅ Single instance for the entire application</li>
+        <li>✅ Can be stored in global context, like <code>window.explorer</code></li>
+        <li>✅ Reusable in any modern framework (React, Vue, etc)</li>
+        </ul>
+    </div>
+    </div>
+    <div id="conceito-api" class="conteudo-lateral">
+    <h2>📡 Connecting to GitHub API</h2>
+    <div class="oqeh">
+        <p>
+        The <strong>GitHub Explorer Framework</strong> allows direct connection to GitHub's public API to search for information about users,
+        repositories, organizations, contributions and much more.
+        </p>
+
+        <h4>✅ Instantiating with authentication (recommended)</h4>
+        <pre><code class="js">
+    import { GitHubExplorer } from 'github-api-framework';
+
+    const explorer = new GitHubExplorer({
+    token: "ghp_yourTokenHere"
+    });
+        </code></pre>
+
+        <p>
+        If you choose not to use an authentication token, the framework will still work. However, GitHub's API will apply stricter request limits (60 per hour).
+        </p>
+        <h4>🔒 Where can I get my token?</h4>
+        <p>
+        Go to <a href="https://github.com/settings/tokens" target="_blank">github.com/settings/tokens</a>, click on "Generate new token",
+        select the desired scopes (read-only for basic use) and generate your personal token.
+        </p>
+
+        <h4>🧪 Example without authentication</h4>
+        <pre><code class="js">
+    const explorer = new GitHubExplorer(); // Without token
+    explorer.getUser("octocat").then(user => {
+    console.log(user.name, user.bio);
+    });
+        </code></pre>
+
+        <h4>🛑 Avoid exposing tokens on the frontend!</h4>
+        <p>
+        In production projects, store the token in environment variables and use it on the backend. Public tokens in the browser can be easily
+        captured by malicious users.
+        </p>
+
+        <h4>📘 Tip: Free GitHub tokens</h4>
+        <p>
+        Free GitHub users can generate unlimited tokens, and expired tokens can be renewed at any time.
+        </p>
+    </div>
+    </div>
+
+    <div id="conceito-modular" class="conteudo-lateral">
+    <h2>🧩 Modular Structure</h2>
+    <div class="oqeh">
+        <p>
+        The <strong>GitHub Explorer Framework</strong> is developed with a <span class="tag">modular architecture</span> and <span class="tag">service-oriented</span> approach, providing scalability, reusability, and code clarity. Each functionality is separated into independent modules, making selective use and integration with any modern stack easier.
+        </p>
+
+        <h4>📦 Main available modules:</h4>
+        <ul>
+        <li><code>GitHubUser</code> – Works with user data</li>
+        <li><code>GitHubRepo</code> – Queries and filters repositories</li>
+        <li><code>GitHubOrg</code> – Manages organization data</li>
+        <li><code>GitHubLang</code> – Detects and analyzes languages</li>
+        <li><code>GitHubStats</code> – Aggregated statistics for dashboards</li>
+        <li><code>GitHubActivity</code> – Histories of commits, events, and PRs</li>
+        </ul>
+
+        <h4>🛠️ Example of modular usage</h4>
+        <pre><code class="js">import { GitHubExplorer, GitHubUser, GitHubRepo } from 'github-api-framework';
+
+    const explorer = new GitHubExplorer({ token: "ghp_yourTokenHere" });
+
+    const user = new GitHubUser(explorer);
+    const repo = new GitHubRepo(explorer);
+
+    user.getProfile('octocat').then(console.log);
+    repo.listByUser('octocat').then(console.log);</code></pre>
+
+        <h4>🔍 Advantages of modularity</h4>
+        <ul>
+        <li>🔄 Simple maintenance: each module can evolve independently</li>
+        <li>⚡ Performance: use only the modules you need</li>
+        <li>🌱 Extensibility: create your own modules based on <code>GitHubService</code></li>
+        <li>🧪 Ease of testing: modules are independent</li>
+        </ul>
+
+        <h4>🏗️ Internal Architecture (Layers)</h4>
+        <ul>
+        <li><code>GitHubExplorer</code> – Central instance with global configs (token, cache, headers)</li>
+        <li><code>GitHubRequest</code> – Makes direct requests to the API (fetch + error handlers)</li>
+        <li><code>GitHubCache</code> – Stores temporary responses locally</li>
+        <li><code>GitHubService</code> – Base for all modules (inherited by <code>GitHubUser</code>, etc)</li>
+        </ul>
+
+        <h4>💡 Example of custom extension:</h4>
+        <pre><code class="js">import { GitHubService } from 'github-api-framework';
+
+    class GitHubPinnedRepos extends GitHubService {
+    async getPinnedRepos(username) {
+        return this.request(`/users/${username}/repos?sort=pinned`);
+    }
+    }</code></pre>
+
+        
+        
+
+        <h4>📌 Observations:</h4>
+        <ul>
+        <li>💼 The architecture follows SOLID principles</li>
+        <li>📦 Modules are compatible with tree-shaking</li>
+        <li>🧱 Ready-to-use support for SPA, SSR, and JAMStack</li>
+        </ul>
+    </div>
+    </div>
+    <div id="conceito-visualizacao" class="conteudo-lateral">
+    <h2>📊 Data Visualization</h2>
+    <div class="oqeh">
+        <p>
+        The <strong>GitHub Explorer Framework</strong> makes it easy to create interactive and visual dashboards using libraries like <code>Chart.js</code>, <code>D3.js</code>, <code>Recharts</code>, or any other based on <code>SVG</code> or <code>Canvas</code>.
+        </p>
+
+        <h4>📦 Prerequisites</h4>
+        <ul>
+        <li><code>Chart.js</code> installed via CDN or npm</li>
+        <li>DOM with <code>&lt;canvas&gt;</code> to render the charts</li>
+        <li>Calls with the <code>GitHubExplorer</code> to fetch data</li>
+        </ul>
+
+        <h4>📌 Example 1 — Most used languages by a user (Chart.js)</h4>
+        <p>This chart shows the distribution of languages across all public repositories of a user.</p>
+
+        <pre><code class="html">&lt;canvas id="langChart" width="400" height="400"&gt;&lt;/canvas&gt;</code></pre>
+
+        <pre><code class="js">import { GitHubExplorer, GitHubLang } from 'github-api-framework';
+    import Chart from 'chart.js/auto';
+
+    const explorer = new GitHubExplorer({ token: 'ghp_seuTokenAqui' });
+    const langService = new GitHubLang(explorer);
+
+    async function gerarGraficoLinguagens(usuario) {
+    const dados = await langService.getLanguagesByUser(usuario);
+
+    const labels = Object.keys(dados);
+    const valores = Object.values(dados);
+
+    new Chart(document.getElementById('langChart'), {
+        type: 'doughnut',
+        data: {
+        labels,
+        datasets: [{
+            label: 'Linguagens',
+            data: valores,
+            backgroundColor: ['#3b82f6', '#22c55e', '#eab308', '#ef4444'],
+        }]
+        }
+    });
+    }
+
+    gerarGraficoLinguagens('octocat');</code></pre>
+
+        <h4>📈 Example 2 — Activity by Month (Commits / PRs)</h4>
+        <p>This shows a bar chart with the number of events per month.</p>
+
+        <pre><code class="html">&lt;canvas id="atividadeChart"&gt;&lt;/canvas&gt;</code></pre>
+
+        <pre><code class="js">import { GitHubActivity } from 'github-api-framework';
+
+    const activity = new GitHubActivity(explorer);
+
+    async function gerarGraficoAtividade(usuario) {
+    const eventos = await activity.getMonthlyActivity(usuario);
+    const meses = Object.keys(eventos);
+    const valores = Object.values(eventos);
+
+    new Chart(document.getElementById('atividadeChart'), {
+        type: 'bar',
+        data: {
+        labels: meses,
+        datasets: [{
+            label: 'Eventos GitHub',
+            data: valores,
+            backgroundColor: '#6366f1'
+        }]
+        }
+    });
+    }
+
+    gerarGraficoAtividade('octocat');</code></pre>
+
+        <h4>🌐 Tip: CDN for Chart.js</h4>
+        <pre><code class="html">&lt;script src="https://cdn.jsdelivr.net/npm/chart.js"&gt;&lt;/script&gt;</code></pre>
+
+        <h4>💡 Other visualization possibilities:</h4>
+        <ul>
+        <li>📌 Visualization of collaborators by repository</li>
+        <li>📈 Comparison of stars/forks between projects</li>
+        <li>📆 Weekly/monthly activity of the user</li>
+        <li>📂 NNumber of repositories by language</li>
+        </ul>
+
+        <h4>📁 Data response pattern:</h4>
+        <pre><code class="js">{
+    javascript: 12,
+    python: 4,
+    html: 3,
+    css: 2
+    }</code></pre>
+
+        <h4>🧠 Tip for dashboards:</h4>
+        <ul>
+        <li>🔁 Update data by typing <code>?user=nome</code> in the URL</li>
+        <li>📲 Make the dashboard responsive with media queries</li>
+        <li>⚙️ Combine with libraries like <code>DataTables</code> or <code>D3.js</code> for more control</li>
+        </ul>
+    </div>
+    </div>
+    <div id="conceito-autenticacao" class="conteudo-lateral">
+    <h2>🔐 Token Authentication</h2>
+    <div class="oqeh">
+        <p>
+        GitHub imposes <strong>limits on anonymous requests</strong> (without authentication), usually <code>60 requests per hour</code> per IP.
+        For more robust applications, the use of a <strong>Personal Access Token (PAT)</strong> is recommended.
+        </p>
+
+        <h4>📌 Advantages of authentication:</h4>
+        <ul>
+        <li>🚀 Increases the limit to up to <code>5,000 requests per hour</code></li>
+        <li>🛡️ Prevents blocks due to excessive access (403 Rate Limit)</li>
+        <li>🔧 Allows access to private data (if authorized)</li>
+        </ul>
+
+        <h4>🔧 Instantiating with Token</h4>
+        <pre><code class="js">import { GitHubExplorer } from 'github-api-framework';
+
+    const explorer = new GitHubExplorer({
+    token: 'ghp_yourTokenHere'
+    });</code></pre>
+
+        <h4>📍 Where to generate the token?</h4>
+        <p>
+        Go to <a href="https://github.com/settings/tokens" target="_blank">github.com/settings/tokens</a> and click on <strong>"Generate new token (classic)"</strong>.
+        </p>
+
+        <h4>🧠 Tips for generation:</h4>
+        <ul>
+        <li>🔒 Check only the <code>public_repo</code> scope if you want to access only public repositories</li>
+        <li>🧼 NEVER expose the token directly in the frontend in production</li>
+        <li>🔁 Revoke old tokens that are no longer in use</li>
+        </ul>
+
+        <h4>📦 Complete example of authenticated usage</h4>
+        <pre><code class="js">import { GitHubExplorer, GitHubUser } from 'github-api-framework';
+
+    const explorer = new GitHubExplorer({
+    token: 'ghp_XXXXXXXXXXXXXXXXXXXX'
+    });
+
+    const user = new GitHubUser(explorer);
+
+    async function carregarPerfil(nome) {
+    const perfil = await user.getUser(nome);
+    console.log(perfil);
+    }</code></pre>
+
+        <h4>⚠️ Common errors</h4>
+        <ul>
+        <li><code>403: API rate limit</code> — missing or invalid token</li>
+        <li><code>401: Bad credentials</code> — expired or incorrect token</li>
+        <li><code>undefined is not a function</code> — forgetting to properly instantiate GitHubExplorer</li>
+        </ul>
+
+        <h4>🔒 Security</h4>
+        <ul>
+        <li>⚙️ In client-side apps, use tokens only for testing</li>
+        <li>📦 In production, protect the token in the backend and create an intermediary API</li>
+        <li>👨‍💻 Always use environment variables (<code>.env</code>) for tokens in Node.js, Next.js, or Astro</li>
+        </ul>
+
+        <pre><code class="env"># .env
+    GITHUB_TOKEN=ghp_XXXXXXXXXXXXXXXXXXXX</code></pre>
+    </div>
+    </div>
+    <div id="conceito-chartjs" class="conteudo-lateral">
+    <h2>📊 Integrations with Chart.js</h2>
+    <div class="oqeh">
+        <p>
+        The <strong>GitHub Explorer Framework</strong> is designed to work with visualization libraries like <code>Chart.js</code>, allowing you to easily transform API data into interactive and beautiful charts.
+        </p>
+
+        <h4>📦 Install Chart.js</h4>
+        <pre><code class="bash">npm install chart.js</code></pre>
+
+        <h4>📈 Example: Visualizing languages of a repository</h4>
+        <pre><code class="js">import { GitHubExplorer, GitHubRepo } from 'github-api-framework';
+    import Chart from 'chart.js/auto';
+
+    const explorer = new GitHubExplorer();
+    const repo = new GitHubRepo(explorer);
+
+    async function mostrarLinguagens() {
+    const langs = await repo.getRepoLanguages('octocat/Hello-World');
+
+    const labels = Object.keys(langs);
+    const data = Object.values(langs);
+
+    new Chart(document.getElementById('grafico'), {
+        type: 'doughnut',
+        data: {
+        labels,
+        datasets: [{
+            label: 'Bytes por linguagem',
+            data,
+            backgroundColor: ['#4e79a7', '#f28e2b', '#e15759', '#76b7b2'],
+        }]
+        }
+    });
+    }</code></pre>
+
+        <h4>🖼️ HTML for the chart</h4>
+        <pre><code class="html">&lt;canvas id="grafico" width="400" height="400"&gt;&lt;/canvas&gt;</code></pre>
+
+        <p>
+            You can extend this usage with line, bar, radar charts, and more!
+        </p>
+
+        <h4>🎯 Other compatible libraries:</h4>
+        <ul>
+        <li>D3.js</li>
+        <li>ECharts</li>
+        <li>Highcharts</li>
+        <li>ApexCharts</li>
+        </ul>
+    </div>
+    </div>
+    <div id="conceito-boaspraticas" class="conteudo-lateral">
+    <h2>🧪 Best Practices</h2>
+    <div class="oqeh">
+        <p>
+        To make the most of the GitHub Explorer Framework with stability, security, and performance, follow these best practices:
+        </p>
+
+        <h4>📁 Code Organization</h4>
+        <ul>
+        <li>🚀 Separate responsibilities into files like <code>user.js</code>, <code>repos.js</code>, and <code>charts.js</code></li>
+        <li>✅ Use async functions whenever consuming the API</li>
+        </ul>
+
+        <h4>🔐 Security</h4>
+        <ul>
+        <li>🔒 Avoid exposing tokens in public frontends</li>
+        <li>💼 In production environments, use a backend API as a proxy</li>
+        </ul>
+
+        <h4>⚙️ Performance</h4>
+        <ul>
+        <li>📦 Cache static API responses (users, languages, etc.)</li>
+        <li>🔁 Reduce duplicate calls by using debounce/throttle on inputs</li>
+        </ul>
+
+        <h4>📦 Design Patterns</h4>
+        <ul>
+        <li>🏗️ Use the <code>Factory</code> pattern to instantiate users/repos</li>
+<li>🧱 Keep the interface decoupled from the network logic</li>''
+        </ul>
+
+        <h4>📊 Visualization</h4>
+        <ul>
+        <li>🎨 Make the view responsive with <code>media queries</code> and <code>flex/grid</code></li>
+        <li>🕶️ Dark mode: respect the user's theme for better accessibility</li>
+        </ul>
+
+        <h4>🧪 Testing and Debugging</h4>
+        <ul>
+        <li>🐞 Use <code>console.table()</code> to visualize API objects</li>
+        <li>🧪 Use Jest/Vitest for testing transformation functions</li>
+        </ul>
+    </div>
+    </div>
+    <div id="conceito-erros" class="conteudo-lateral">
+    <h2>🚨 Error Handling with Examples</h2>
+        <div class="oqeh">
+            <p>
+            When using the <strong>GitHub Explorer Framework</strong>, properly handling errors is essential to ensure a good user experience and avoid unexpected failures.
+            </p>
+
+            <h4>📌 Common Possible Errors</h4>
+            <ul>
+            <li><code>403 Forbidden</code> — Anonymous request limit exceeded</li>
+            <li><code>404 Not Found</code> — User or repository not found</li>
+            <li><code>500 Internal Server Error</code> — Problem with GitHub servers</li>
+            </ul>
+
+            <h4>💡 How to Handle Errors in the Explorer Instance</h4>
+            <pre><code class="js">
+        const explorer = new GitHubExplorer();
+
+        try {
+        const user = await explorer.getUser('octocat');
+        console.log(user);
+        } catch (error) {
+        console.error('Erro ao buscar usuário:', error.message);
+
+        if (error.status === 403) {
+            alert('Você excedeu o limite de requisições da API. Use um token!');
+        } else if (error.status === 404) {
+            alert('Usuário não encontrado. Verifique o nome digitado.');
+        }
+        }
+            </code></pre>
+
+            <h4>✅ Best Practices</h4>
+            <ul>
+            <li>Use <code>try/catch</code> blocks for all asynchronous calls</li>
+            <li>Check the <code>status</code> of the error to handle different cases</li>
+            <li>Provide friendly feedback and instructions to the end user</li>
+            <li>Log errors in development environments for debugging</li>
+            </ul>
+        </div>
+        </div>
+        <div id="conceito-performance" class="conteudo-lateral">
+    <h2>📈 API Performance and Limitations</h2>
+    <div class="oqeh">
+        <p>
+        The GitHub Explorer Framework is highly optimized but is subject to the limitations imposed by the GitHub API itself.
+        </p>
+
+        <h4>🚦 GitHub REST API Limits</h4>
+        <ul>
+        <li>🔒 <strong>Anonymous requests:</strong> up to <code>60 req/hour</code></li>
+        <li>🔐 <strong>Authenticated requests:</strong> up to <code>5,000 req/hour</code> per token</li>
+        <li>⚙️ <strong>GraphQL requests:</strong> based on complexity cost, not just quantity</li>
+        </ul>
+
+        <h4>🚀 Tips for High Performance</h4>
+        <ul>
+        <li>Use personal tokens to increase the limit</li>
+        <li>Avoid unnecessary repeated calls</li>
+        <li>Cache static responses (such as language data or avatar)</li>
+        <li>Prefer the REST API for simple and direct data</li>
+        </ul>
+
+        <h4>📚 Example of manual caching</h4>
+        <pre><code class="js">
+    const cache = new Map();
+
+    async function getUser(username) {
+    if (cache.has(username)) return cache.get(username);
+
+    const user = await explorer.getUser(username);
+    cache.set(username, user);
+    return user;
+    }
+        </code></pre>
+
+        <p>
+        The conscious use of the API is essential for production applications, especially when displaying real-time data for multiple users.
+        </p>
+    </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
