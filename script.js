@@ -48,79 +48,56 @@ document.addEventListener('DOMContentLoaded', function () {
      * Search functionality that searches through all visible content
      */
     function setupSearch() {
-        // Get all searchable elements (cards, list items, etc.)
-        const searchableElements = document.querySelectorAll('[data-search], .conteudo-lateral');
+    function performSearch() {
+        const searchTerm = searchInput.value.toLowerCase().trim();
 
-        function performSearch() {
-            const searchTerm = searchInput.value.toLowerCase().trim();
-            
-            if (searchTerm === '') {
-                // If search is empty, show all content
-                contentSections.forEach(section => section.style.display = 'block');
-                document.querySelectorAll('[data-search]').forEach(el => el.style.display = 'block');
-                return;
-            }
-
-            // First hide all content sections
-            contentSections.forEach(section => section.style.display = 'none');
-            
-            // Search through all elements with data-search attribute
-            let foundResults = false;
-            
-            document.querySelectorAll('[data-search]').forEach(element => {
-                const searchText = element.getAttribute('data-search').toLowerCase();
-                if (searchText.includes(searchTerm)) {
-                    element.style.display = 'block';
-                    // Show the parent section
-                    const parentSection = element.closest('.conteudo-lateral');
-                    if (parentSection) {
-                        parentSection.style.display = 'block';
-                        foundResults = true;
-                    }
-                } else {
-                    element.style.display = 'none';
-                }
-            });
-
-            // Search through content text (for deeper content searching)
-            if (!foundResults) {
-                contentSections.forEach(section => {
-                    const sectionText = section.textContent.toLowerCase();
-                    if (sectionText.includes(searchTerm)) {
-                        section.style.display = 'block';
-                        foundResults = true;
-                    }
-                });
-            }
-
-            // If no results found, show a message
-            if (!foundResults) {
-                const noResults = document.createElement('div');
-                noResults.className = 'no-results';
-                noResults.textContent = 'No results found for: ' + searchTerm;
-                
-                // Check if message already exists
-                const existingMessage = document.querySelector('.no-results');
-                if (!existingMessage) {
-                    document.querySelector('.container').prepend(noResults);
-                }
-            } else {
-                // Remove no results message if it exists
-                const existingMessage = document.querySelector('.no-results');
-                if (existingMessage) {
-                    existingMessage.remove();
-                }
-            }
+        // Remove previous messages
+        const existingMessage = document.querySelector('.no-results');
+        if (existingMessage) {
+            existingMessage.remove();
         }
 
-        // Event listeners for search
-        searchButton.addEventListener('click', performSearch);
-        searchInput.addEventListener('keyup', function (e) {
-            if (e.key === 'Enter') {
-                performSearch();
-            }
+        if (searchTerm === '') {
+            // If empty, show everything
+            contentSections.forEach(section => {
+                section.style.display = 'block';
+            });
+            return;
+        }
+
+        const words = searchTerm.split(' ');
+        const pageText = document.body.textContent.toLowerCase();
+
+        const allWordsFound = words.every(word => pageText.includes(word));
+
+        // Hide all content first
+        contentSections.forEach(section => {
+            section.style.display = 'none';
         });
+
+        if (allWordsFound) {
+            // If something was found, show all sections (or customize this)
+            contentSections.forEach(section => {
+                section.style.display = 'block';
+            });
+        } else {
+            // Display "no results" message
+            const noResults = document.createElement('div');
+            noResults.className = 'no-results';
+            noResults.textContent = 'No results found for: ' + searchTerm;
+            document.querySelector('.container').prepend(noResults);
+        }
     }
+
+    // Events
+    searchButton.addEventListener('click', performSearch);
+    searchInput.addEventListener('keyup', function (e) {
+        if (e.key === 'Enter') {
+            performSearch();
+        }
+    });
+}
+
 
     /**
      * Handle submenu toggle functionality
