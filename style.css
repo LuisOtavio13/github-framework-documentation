@@ -7,6 +7,9 @@
     --text: #e2e2e2;
     --text-light: #ffffff;
 }
+html, body {
+  overflow-x: hidden !important;
+}
 
 /* Reset */
 * {
