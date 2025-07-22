@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const searchInput = document.getElementById('searchInput');
     const searchButton = document.getElementById('searchButton');
     const submenuToggles = document.querySelectorAll('.toggle-submenu');
+    const sidebar = document.querySelector('.heb-bar'); // Elemento da sidebar
 
     /**
      * Initialize the page with default active section
@@ -44,48 +45,67 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    /**
-     * Search functionality that searches through all visible content
-     */
-  function setupSearch() {
+  /**
+ * Implements the search functionality by displaying only the first matching content section.
+ */
+function setupSearch() {
+    // Stores the originally visible section before any search is performed
+    let originalActiveSection = null;
+
     function performSearch() {
         const searchTerm = searchInput.value.toLowerCase().trim();
 
-        // Remove old messages
+        // Removes any previous "no results" message
         const existingMessage = document.querySelector('.no-results');
         if (existingMessage) {
             existingMessage.remove();
         }
 
         if (searchTerm === '') {
-            // If empty, show everything
-            contentSections.forEach(section => {
-                section.style.display = 'block';
-            });
+            // If search is empty, restore the original section state
+            if (originalActiveSection) {
+                // Hide all content sections
+                contentSections.forEach(section => {
+                    section.style.display = 'none';
+                });
+                // Show only the previously active section
+                originalActiveSection.style.display = 'block';
+                originalActiveSection = null; // Reset
+            }
             return;
         }
 
-        const words = searchTerm.split(' ');
-        let foundSections = [];
+        // On the first search, store the currently active section
+        if (!originalActiveSection) {
+            contentSections.forEach(section => {
+                if (section.classList.contains('active')) {
+                    originalActiveSection = section;
+                }
+            });
+        }
 
-        // Hide everything first
+        // Hide all sections
         contentSections.forEach(section => {
             section.style.display = 'none';
-
-            const sectionText = section.textContent.toLowerCase();
-            const match = words.every(word => sectionText.includes(word));
-
-            if (match) {
-                section.style.display = 'block';
-                foundSections.push(section);
-            }
         });
 
-        if (foundSections.length > 0) {
-            // Scroll to the first matched section
-            foundSections[0].scrollIntoView({ behavior: 'smooth' });
+        let firstMatch = null;
+
+        // Find the first section that contains the search term
+        for (const section of contentSections) {
+            const sectionText = section.textContent.toLowerCase();
+            if (sectionText.includes(searchTerm)) {
+                firstMatch = section;
+                break;
+            }
+        }
+
+        if (firstMatch) {
+            // Show only the matched section
+            firstMatch.style.display = 'block';
+            firstMatch.scrollIntoView({ behavior: 'smooth', block: 'start' });
         } else {
-            // Show "no results" message
+            // Show a "no results found" message
             const noResults = document.createElement('div');
             noResults.className = 'no-results';
             noResults.textContent = 'No results found for: ' + searchTerm;
@@ -93,7 +113,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Events
+    // Event listeners
     searchButton.addEventListener('click', performSearch);
     searchInput.addEventListener('keyup', function (e) {
         if (e.key === 'Enter') {
@@ -101,6 +121,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 }
+
 
 
     /**
