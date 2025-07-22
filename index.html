@@ -280,7 +280,7 @@
             <h4>🔍 Search for user information</h4>
             <pre><code class="language-js">
         // Importing the main module
-        import { GitHubUserService } from 'github-api-framework';
+        import { GitHubUserService } from 'github-framework';
 
         // Creating instance and fetching user data
         const userService = new GitHubUserService();
@@ -294,7 +294,7 @@
         <div class="exemplo-codigo">
             <h4>📦 List user repositories</h4>
             <pre><code class="language-js">
-        import { GitHubRepoService } from 'github-api-framework';
+        import { GitHubRepoService } from 'github-framework';
 
         const repoService = new GitHubRepoService();
         repoService.getUserRepos('octocat').then(repos => {
@@ -306,7 +306,7 @@
         <div class="exemplo-codigo">
             <h4>📊 View used languages with graph</h4>
             <pre><code class="language-js">
-        import { GitHubLanguageService } from 'github-api-framework';
+        import { GitHubLanguageService } from 'github-framework';
         import Chart from 'chart.js/auto';
 
         const langService = new GitHubLanguageService();
@@ -570,7 +570,7 @@
 
         <h4>✅ Instantiating with authentication (recommended)</h4>
         <pre><code class="js">
-    import { GitHubExplorer } from 'github-api-framework';
+    import { GitHubExplorer } from 'github-framework';
 
     const explorer = new GitHubExplorer({
     token: "ghp_yourTokenHere"
@@ -625,7 +625,7 @@
         </ul>
 
         <h4>🛠️ Example of modular usage</h4>
-        <pre><code class="js">import { GitHubExplorer, GitHubUser, GitHubRepo } from 'github-api-framework';
+        <pre><code class="js">import { GitHubExplorer, GitHubUser, GitHubRepo } from 'github-framework';
 
     const explorer = new GitHubExplorer({ token: "ghp_yourTokenHere" });
 
@@ -652,7 +652,7 @@
         </ul>
 
         <h4>💡 Example of custom extension:</h4>
-        <pre><code class="js">import { GitHubService } from 'github-api-framework';
+        <pre><code class="js">import { GitHubService } from 'github-framework';
 
     class GitHubPinnedRepos extends GitHubService {
     async getPinnedRepos(username) {
@@ -690,7 +690,7 @@
 
         <pre><code class="html">&lt;canvas id="langChart" width="400" height="400"&gt;&lt;/canvas&gt;</code></pre>
 
-        <pre><code class="js">import { GitHubExplorer, GitHubLang } from 'github-api-framework';
+        <pre><code class="js">import { GitHubExplorer, GitHubLang } from 'github-framework';
     import Chart from 'chart.js/auto';
 
     const explorer = new GitHubExplorer({ token: 'ghp_seuTokenAqui' });
@@ -850,7 +850,7 @@
         <pre><code class="bash">npm install chart.js</code></pre>
 
         <h4>📈 Example: Visualizing languages of a repository</h4>
-        <pre><code class="js">import { GitHubExplorer, GitHubRepo } from 'github-api-framework';
+        <pre><code class="js">import { GitHubExplorer, GitHubRepo } from 'github-framework';
     import Chart from 'chart.js/auto';
 
     const explorer = new GitHubExplorer();
