@@ -508,3 +508,83 @@ body {
   font-size: 0.9rem;
   margin-bottom: 1rem;
 }
+.novidades-box {
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 2rem 0;
+  border-left: 4px solid #4CAF50;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.novidade-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 1.5rem;
+  color: #2c3e50;
+}
+
+.novidade-header h3 {
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+.novidade-item {
+  display: flex;
+  gap: 15px;
+  padding: 1rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.novidade-item:hover {
+  background: rgba(0,0,0,0.02);
+}
+
+.novidade-item.ts-support {
+  border-left: 3px solid #3178c6;
+}
+
+.novidade-icon {
+  font-size: 1.8rem;
+  color: #3178c6;
+}
+
+.novidade-icon .fab.fa-typescript {
+  color: #3178c6;
+}
+
+.novidade-content h4 {
+  margin: 0 0 0.5rem 0;
+  color: #2c3e50;
+}
+
+.novidade-content p {
+  margin: 0;
+  color: #666;
+  line-height: 1.5;
+}
+
+.novidade-meta {
+  margin-top: 0.5rem;
+  display: flex;
+  gap: 8px;
+}
+
+.tag {
+  padding: 0.2rem 0.6rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.ts-tag {
+  background: rgba(49, 120, 198, 0.1);
+  color: #3178c6;
+}
+
+.feature-tag {
+  background: rgba(76, 175, 80, 0.1);
+  color: #4CAF50;
+}
