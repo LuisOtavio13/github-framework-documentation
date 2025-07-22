@@ -47,11 +47,11 @@ document.addEventListener('DOMContentLoaded', function () {
     /**
      * Search functionality that searches through all visible content
      */
-    function setupSearch() {
+  function setupSearch() {
     function performSearch() {
         const searchTerm = searchInput.value.toLowerCase().trim();
 
-        // Remove previous messages
+        // Remove old messages
         const existingMessage = document.querySelector('.no-results');
         if (existingMessage) {
             existingMessage.remove();
@@ -66,22 +66,26 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         const words = searchTerm.split(' ');
-        const pageText = document.body.textContent.toLowerCase();
+        let foundSections = [];
 
-        const allWordsFound = words.every(word => pageText.includes(word));
-
-        // Hide all content first
+        // Hide everything first
         contentSections.forEach(section => {
             section.style.display = 'none';
+
+            const sectionText = section.textContent.toLowerCase();
+            const match = words.every(word => sectionText.includes(word));
+
+            if (match) {
+                section.style.display = 'block';
+                foundSections.push(section);
+            }
         });
 
-        if (allWordsFound) {
-            // If something was found, show all sections (or customize this)
-            contentSections.forEach(section => {
-                section.style.display = 'block';
-            });
+        if (foundSections.length > 0) {
+            // Scroll to the first matched section
+            foundSections[0].scrollIntoView({ behavior: 'smooth' });
         } else {
-            // Display "no results" message
+            // Show "no results" message
             const noResults = document.createElement('div');
             noResults.className = 'no-results';
             noResults.textContent = 'No results found for: ' + searchTerm;
