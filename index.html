@@ -165,8 +165,10 @@
                 
             </div>
             <ul class="heb-menu">
+                
                 <li><a href="#" data-target="inicio" class="active"><i class="fas fa-home"></i><span>Start</span></a></li>
                 <li><a href="#" data-target="instalacao"><i class="fas fa-download"></i><span>Installation</span></a></li>
+                <li><a href="#" data-target="changelog"><i class="fas fa-sync"></i><span>Changelog</span></a></li>
 
                 <li class="submenu">
                     <a href="#" class="toggle-submenu">
@@ -402,7 +404,37 @@
             </div>
 
         </div>
+        <div id="changelog" class="conteudo-lateral">
+        <h2><i class="fas fa-sync"></i> Changelog</h2>
+        <div class="changelog-wrapper">
+            <div class="versao-box upcoming">
+            <div class="versao-header">
+                <span class="versao-tag">1.1.0</span>
+                <span class="versao-data">Shortly</span>
+                <span class="upcoming-badge">NOT RELEASED</span>
+            </div>
+            <ul class="versao-lista">
+                <li><span class="tipo-add">ADDED</span> Fallback data system when API fails</li>
+                <li><span class="tipo-add">ADDED</span> GraphQL support for contributions</li>
+                <li><span class="tipo-fix">FIXED</span> Error handling with detailed messages</li>
+                <li><span class="tipo-update">UPDATED</span> TypeScript definitions for all services</li>
+            </ul>
+            </div>
 
+            <!-- Versão 1.0.0 -->
+            <div class="versao-box">
+            <div class="versao-header">
+                <span class="versao-tag">1.0.0</span>
+                <span class="versao-data">2025-07-19</span>
+            </div>
+            <ul class="versao-lista">
+                <li><span class="tipo-add">ADDED</span> Initial release: Web dashboard UI</li>
+                <li><span class="tipo-add">ADDED</span> Modular service classes (Users, Repos, Commits)</li>
+                <li><span class="tipo-add">ADDED</span> Example usage and Jest tests</li>
+            </ul>
+            </div>
+        </div>
+        </div>
         <!-- Ainda dentro do #inicio -->
         <div id="instalacao" class="conteudo-lateral">
             <h3>📦 Installing the GitHub Explorer Framework</h3>
