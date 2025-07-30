@@ -5,12 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HEB Layout Completo</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         .autor-wrapper {
   margin-top: 2rem;
   padding: 1.5rem;
-  background: #f8fbff;
+  background: #b8b8c5;
   border-left: 5px solid #007bff;
   border-radius: 12px;
   box-shadow: 0 0 10px rgba(0,0,0,0.04);
@@ -45,7 +47,7 @@
 
 .autor-detalhes p {
   margin: 0.3rem 0 0;
-  color: #555;
+  color: #000000;
 }
 
 .motivo-uso h3 {
@@ -136,7 +138,74 @@
   background-color: #aaa;
   border-radius: 6px;
 }
+.upcoming-feature a {
+    position: relative;
+    opacity: 0.8;
+}
 
+.upcoming-badge {
+    background-color: var(--accent-hover);
+    color: white;
+    font-size: 0.7rem;
+    padding: 2px 6px;
+    border-radius: 10px;
+    margin-left: 8px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 0.6; }
+    50% { opacity: 1; }
+    100% { opacity: 0.6; }
+}
+
+.upcoming-feature a:hover {
+    opacity: 1;
+}
+.type-section {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background: rgba(0, 123, 255, 0.05);
+    border-radius: 8px;
+    border-left: 3px solid #007bff;
+}
+
+.type-section h3 {
+    color: #0056b3;
+    margin-top: 0;
+}
+
+.type-example {
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 1.5rem 0;
+}
+
+.language-typescript {
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+}
+.upcoming-feature-notice {
+    background: rgba(44, 62, 80, 0.1);
+    border-left: 4px solid #2c3e50;
+    padding: 12px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.upcoming-feature-notice i {
+    color: #2c3e50;
+    font-size: 1.2rem;
+}
+
+.upcoming-feature-notice p {
+    margin: 0;
+    color: #2c3e50;
+    font-weight: 500;
+}
     </style>
 </head>
 <body>
@@ -190,6 +259,21 @@
 
                     <li><a href="#" data-target="conceito-erros">🚨 Error handling with examples</a></li>
                     <li><a href="#" data-target="conceito-performance">📈 Performance and limitations of the API</a></li>
+                    <li class="upcoming-feature">
+                        <a href="#" data-target="gitlab-integration" title="Coming in v1.1.0">
+                            <i class="fab fa-gitlab"></i>
+                            <span style="border-bottom: 1px dotted var(--accent-hover);">GitLab Integration</span>
+                            <span class="upcoming-badge">Soon</span>
+                        </a>
+                    </li>
+                    <li class="upcoming-feature">
+                        <a href="#" data-target="typescript-types" title="Coming in v1.1.0">
+                            <i class="devicon-typescript-plain colored"></i>
+
+                            <span style="border-bottom: 1px dotted var(--accent-hover);">TypeScript Support</span>
+                            <span class="upcoming-badge">Soon</span>
+                        </a>
+                    </li>
             </ul>
         </nav>
 
@@ -222,7 +306,7 @@
             <div class="novidades-box">
                 <div class="novidade-header">
                     <i class="fas fa-bullhorn"></i>
-                    <h3>🚀 What's new in the version 2.0</h3>
+                    <h3>🚀 What's new in the version 1.1.0</h3>
                 </div>
                 
                 <div class="novidade-item ts-support">
@@ -257,7 +341,7 @@
                     <li>🧩 Based on reusable modules with a focus on <code>best practices</code>.</li>
                     <li>📈 Allows <strong>monitoring of activity</strong>, <strong>languages</strong>, and <strong>contributions</strong> of any user or public repository.</li>
                     </ul>
-                    <p>The GitHub Explorer was born out of the need for a practical and reusable solution for frequent analyses of GitHub profiles, especially in community contexts, bootcamps, open-source teams, and technical mentoring.</p>
+                    <p>The GitHub Explorer Framework was born out of the need for a practical, modular, and reusable solution to integrate and facilitate the use of various APIs, with a special focus on collaborative environments such as communities, bootcamps, open-source teams, and technical mentoring.</p>
                 </div>
                 </div>
                 <div class="funcionalidades-box">
@@ -414,6 +498,7 @@
                 <span class="upcoming-badge">NOT RELEASED</span>
             </div>
             <ul class="versao-lista">
+                <li><span class="tipo-add">ADDED</span>  add support for GitLab integration</li>
                 <li><span class="tipo-add">ADDED</span> Fallback data system when API fails</li>
                 <li><span class="tipo-add">ADDED</span> GraphQL support for contributions</li>
                 <li><span class="tipo-fix">FIXED</span> Error handling with detailed messages</li>
@@ -1068,7 +1153,284 @@
         </p>
     </div>
     </div>
+    <div id="gitlab-integration" class="conteudo-lateral">
+    <h2><i class="fab fa-gitlab"></i> Upcoming GitLab Integration (v1.1.0)</h2>
+    <div class="oqeh">
+        <p>
+        The <strong>GitHub Explorer Framework</strong> will soon expand to support GitLab API integration in version 1.1.0, 
+        providing a unified interface to work with both platforms.
+        </p>
 
+        <h4>📦 Key Components</h4>
+        <div class="tech-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Service</th>
+                        <th>Purpose</th>
+                        <th>Key Methods</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>GitLabUserService</code></td>
+                        <td>Retrieve user profiles and stats</td>
+                        <td><code>loadUserData()</code>, <code>renderProfile()</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>GitLabRepoService</code></td>
+                        <td>Manage repositories</td>
+                        <td><code>loadReposData()</code>, <code>loadFileContent()</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>GitLabActivityService</code></td>
+                        <td>Track user activity</td>
+                        <td><code>loadActivities()</code>, <code>renderActivities()</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>GitLabCommitService</code></td>
+                        <td>Access commit history</td>
+                        <td><code>loadCommitsData()</code>, <code>loadCommitDetails()</code></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h4>🚀 Basic Usage Example</h4>
+        <pre><code class="js">
+const config = {
+  username: 'yourUsername',
+  token: 'yourAccessToken',
+  baseUrl: 'https://gitlab.com/api/v4'
+};
+
+const userService = new GitLabUserService(config);
+await userService.loadUserData();
+console.log(userService.renderProfile());
+        </code></pre>
+
+        <h4>🔑 Authentication</h4>
+        <p>
+        Similar to GitHub, you'll need a <a href="https://gitlab.com/-/profile/personal_access_tokens" target="_blank">GitLab Personal Access Token</a>:
+        </p>
+        <pre><code class="js">
+const explorer = new GitLabExplorer({
+  token: "glpat-yourTokenHere",
+  baseUrl: "https://gitlab.com/api/v4"
+});
+        </code></pre>
+
+        <h4>📊 Data Structure Examples</h4>
+        <div class="code-group">
+            <h5>User Profile</h5>
+            <pre><code class="json">
+{
+  "avatarUrl": "",
+  "name": "",
+  "bio": "",
+  "followers": 0,
+  "following": 0,
+  "publicRepos": 0,
+  "stats": {}
+}
+            </code></pre>
+
+            <h5>Repository</h5>
+            <pre><code class="json">
+{
+  "id": "",
+  "name": "",
+  "description": "",
+  "language": "",
+  "stars": 0,
+  "forks": 0,
+  "updatedAt": "",
+  "url": ""
+}
+            </code></pre>
+        </div>
+
+        <div class="novidades-box">
+            <div class="novidade-header">
+                <i class="fas fa-lightbulb"></i>
+                <h3>✨ Key Features Coming in 1.1.0</h3>
+            </div>
+            
+            <div class="novidade-item">
+                <div class="novidade-icon">
+                    <i class="fas fa-exchange-alt"></i>
+                </div>
+                <div class="novidade-content">
+                    <h4>Unified API Interface</h4>
+                    <p style="color: #2c3e50;">Same familiar methods for both GitHub and GitLab where possible</p>
+                </div>
+            </div>
+
+            <div class="novidade-item">
+                <div class="novidade-icon">
+                    <i class="fas fa-server"></i>
+                </div>
+                <div class="novidade-content">
+                    <h4>Self-Hosted GitLab Support</h4>
+                    <p style="color: #2c3e50;">Connect to your private GitLab instances by configuring the base URL</p>
+                </div>
+            </div>
+
+            <div class="novidade-item">
+                <div class="novidade-icon">
+                    <i class="fas fa-project-diagram"></i>
+                </div>
+                <div class="novidade-content">
+                    <h4>Project Management Tools</h4>
+                    <p style="color: #2c3e50;">Access to GitLab-specific features like issues, merge requests, and CI/CD pipelines</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <div id="typescript-types" class="conteudo-lateral">
+    <h2><i class="fab fa-js-square"></i> TypeScript Types Documentation</h2>
+    <div class="oqeh">
+        <p>
+        The <strong>GitHub Explorer Framework</strong> provides complete TypeScript support with well-defined interfaces
+        for all API responses and formatted data structures.
+        </p>
+
+        <div class="type-section">
+            <h3><i class="fas fa-cog"></i> Core Configuration Types</h3>
+            <pre><code class="language-typescript">
+interface GitHubConfig {
+  githubUsername: string;
+  githubToken?: string;  // Optional authentication token
+}
+            </code></pre>
+        </div>
+
+        <div class="type-section">
+            <h3><i class="fas fa-code-branch"></i> Repository Types</h3>
+            <pre><code class="language-typescript">
+interface Repository {
+  id: number;
+  name: string;
+  full_name: string;
+  private: boolean;
+  html_url: string;
+  description: string | null;
+  language: string | null;
+  stargazers_count: number;
+  forks_count: number;
+  updated_at: string;
+}
+
+interface FormattedRepo {
+  name: string;
+  description: string;
+  language: string;
+  stars: number;
+  forks: number;
+  updatedAt: string;
+  url: string;
+}
+            </code></pre>
+        </div>
+
+        <div class="type-section">
+            <h3><i class="fas fa-running"></i> Activity Types</h3>
+            <pre><code class="language-typescript">
+type ActivityType = 
+  | 'PushEvent'
+  | 'CreateEvent'
+  | 'PullRequestEvent'
+  | 'IssuesEvent';
+
+interface Activity {
+  id: string;
+  type: ActivityType;
+  repo: { name: string };
+  created_at: string;
+  payload: {
+    action?: string;
+    ref?: string;
+  };
+}
+
+interface FormattedActivity {
+  text: string;
+  icon: string;  // Font Awesome icon class
+  date: string;  // Human-readable format
+}
+            </code></pre>
+        </div>
+
+        <div class="type-section">
+            <h3><i class="fas fa-user"></i> User Profile Types</h3>
+            <pre><code class="language-typescript">
+interface UserProfile {
+  login: string;
+  name: string | null;
+  bio: string | null;
+  public_repos: number;
+  followers: number;
+  following: number;
+}
+
+interface FormattedProfile {
+  avatarUrl: string;
+  name: string;
+  bio: string;
+  followers: number;
+  following: number;
+  publicRepos: number;
+}
+            </code></pre>
+        </div>
+
+        <div class="type-section">
+            <h3><i class="fas fa-tools"></i> Utility Types</h3>
+            <pre><code class="language-typescript">
+interface Helpers {
+  getAuthHeaders(token?: string | null): Record&lt;string, string&gt;;
+  formatFileSize(bytes: number): string;
+  formatDate(date: Date | string): string;
+}
+
+interface Formatters {
+  formatCommitMessage(message: string): string;
+  formatDateTime(date: Date | string): string;
+}
+            </code></pre>
+        </div>
+
+        <div class="type-example">
+            <h3><i class="fas fa-code"></i> Usage Example</h3>
+            <pre><code class="language-typescript">
+import { GitHubExplorer } from 'github-framework';
+
+const config: GitHubConfig = {
+  githubUsername: 'octocat',
+  githubToken: process.env.GITHUB_TOKEN
+};
+
+async function getUserRepos(): Promise&lt;FormattedRepo[]&gt; {
+  const explorer = new GitHubExplorer(config);
+  return await explorer.getUserRepos(config.githubUsername);
+}
+            </code></pre>
+        </div>
+
+        <div class="autor-wrapper" style="background: #2c3e50; color: white;">
+            <div class="motivo-uso">
+                <h3 style="color: white;">✨ TypeScript Benefits</h3>
+                <ul style="color: white;">
+                    <li>🔒 <strong>Type Safety:</strong> Catch errors during development</li>
+                    <li>💻 <strong>Intellisense:</strong> Better IDE autocompletion</li>
+                    <li>📄 <strong>Documentation:</strong> Types serve as living documentation</li>
+                    <li>🔄 <strong>Refactoring:</strong> Safer code changes</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
     <script src="script.js"></script>
 </body>
 </html>
